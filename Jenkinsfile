@@ -56,7 +56,7 @@ pipeline
           dir("/home/ec2-user/project/game-of-life/gameoflife-web")
 	       {
 	        sh "docker build -t nikhil ."
-	        sh "docker run -itdp 8090:8080 nikhil"
+	        sh "docker run -itdp 9090:8080 nikhil"
 	 }
 	}
 }
