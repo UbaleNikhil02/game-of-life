@@ -59,13 +59,6 @@ pipeline
 	        sh "docker run -itdp 9090:8080 nikhil"
 	 }
 	}
-}
-stage('copy'){  
-              steps{
-	            dir("/home/ec2-user"){
-                                                 sh "scp tomcat -i nikhil@10.182.0.6:/home/nikhil"
-                                                 }
-		    }
-             }	    
+}	    
 }
 }
