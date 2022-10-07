@@ -5,7 +5,7 @@ pipeline
         node
         {
             label 'built-in'
-            customWorkspace "/home/ec2-user/project/"
+            customWorkspace "/home/ubalenikhil7866/project/"
         }
     }
     stages
@@ -27,7 +27,7 @@ pipeline
                     node 
                          {  
                               label "built-in" 
-                              customWorkspace "/home/ec2-user/project/game-of-life" 
+                              customWorkspace "/home/ubalenikhil7866/project/game-of-life" 
                                                       }
                                                       }
             steps
@@ -40,7 +40,7 @@ pipeline
                             
             steps
             {
-			 dir("/home/ec2-user/project/game-of-life/gameoflife-web")
+			 dir("/home/ubalenikhil7866/project/game-of-life/gameoflife-web")
 			 {
                sh "docker build -t nikhil ."
                sh "docker tag nikhil:latest nikhil02/nikhil:2.0"
@@ -53,7 +53,7 @@ pipeline
          {
           steps
            {
-          dir("/home/ec2-user/project/game-of-life/gameoflife-web")
+          dir("/home/ubalenikhil7866/project/game-of-life/gameoflife-web")
 	       {
 	        sh "docker build -t nikhil ."
 	        sh "docker run -itdp 9090:8080 nikhil"
