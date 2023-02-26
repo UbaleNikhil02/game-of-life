@@ -2,7 +2,7 @@ pipeline {
   agent {
     node {
       label 'built-in'
-      customWorkspace "/home/ubalenikhil7866/project/"
+      customWorkspace "/home/ubalenikhil92/project/"
     }
   }
   stages {
@@ -16,7 +16,7 @@ pipeline {
       agent {
         node {  
           label "built-in" 
-          customWorkspace "/home/ubalenikhil7866/project/game-of-life" 
+          customWorkspace "/home/ubalenikhil92/project/game-of-life" 
         }
       }
        steps {
@@ -25,17 +25,17 @@ pipeline {
     }   
     stage('docker build and publish') { 
       steps {
-	    dir("/home/ubalenikhil7866/project/game-of-life/gameoflife-web") {
+	    dir("/home/ubalenikhil92/project/game-of-life/gameoflife-web") {
           sh "docker build -t nikhil ."
-          sh "docker tag nikhil:latest nikhil02/nikhil:2.0"
+          sh "docker tag nikhil:latest nikhil02/nikhil:1.0"
           sh "docker login -u nikhil02 -p dckr_pat_f3fFguBXrvziR9KTutAHr-VZgqU"
-          sh "docker push nikhil02/nikhil:2.0"
+          sh "docker push nikhil02/nikhil:1.0"
         }
 	  }
     }
     stage ("deploy") {
       steps {
-        dir("/home/ubalenikhil7866/project/game-of-life/gameoflife-web") {
+        dir("/home/ubalenikhil92/project/game-of-life/gameoflife-web") {
 	      sh "docker build -t nikhil ." 
 	      sh "docker run -itdp 9090:8080 nikhil"
 	    }
